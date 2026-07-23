@@ -35,7 +35,7 @@ export const homeContent = homeContentSchema.parse({
     command: "pnpm install && pnpm dev",
   },
   foundation: {
-    eyebrow: "Phase two",
+    eyebrow: "Configurable foundation",
     title: "A small core with a configurable shell.",
     description:
       "Change the identity and navigation in one typed file, while reusable components preserve structure, behavior, and accessibility.",
@@ -63,6 +63,6 @@ export const homeContent = homeContentSchema.parse({
     eyebrow: "Working principles",
     title: "Content, structure, and appearance can evolve independently.",
     description:
-      "The shell owns navigation and semantics. Content stays editable. Visual presets arrive next without coupling either layer.",
+      "The shell owns navigation and semantics. Content stays editable. Visual presets reshape the experience without coupling either layer.",
   },
 });

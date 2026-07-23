@@ -93,7 +93,7 @@ export const siteConfig = defineSiteConfig({
     },
   },
   announcement: {
-    text: "Phase two adds a typed, configurable site shell.",
+    text: "Phase three adds three distinct, persistent visual systems.",
     action: {
       kind: "external",
       label: "Follow the roadmap",

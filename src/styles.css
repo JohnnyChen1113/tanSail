@@ -6,7 +6,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Inter Variable", sans-serif;
+  --font-sans: var(--font-body);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -31,44 +31,16 @@
   --radius-xl: calc(var(--radius) * 1.35);
 }
 
-:root {
-  --background: oklch(0.98 0.012 85);
-  --foreground: oklch(0.2 0.02 252);
-  --card: oklch(0.995 0.006 88);
-  --card-foreground: var(--foreground);
-  --primary: oklch(0.27 0.055 251);
-  --primary-foreground: oklch(0.98 0.01 85);
-  --secondary: oklch(0.94 0.018 82);
-  --muted-foreground: oklch(0.48 0.025 250);
-  --accent: oklch(0.69 0.13 46);
-  --accent-soft: oklch(0.92 0.04 60);
-  --border: oklch(0.85 0.025 77);
-  --radius: 0.75rem;
-}
-
-.dark {
-  --background: oklch(0.16 0.025 252);
-  --foreground: oklch(0.94 0.012 82);
-  --card: oklch(0.2 0.028 252);
-  --card-foreground: var(--foreground);
-  --primary: oklch(0.87 0.025 78);
-  --primary-foreground: oklch(0.18 0.025 252);
-  --secondary: oklch(0.24 0.025 252);
-  --muted-foreground: oklch(0.7 0.02 78);
-  --accent: oklch(0.75 0.13 50);
-  --accent-soft: oklch(0.28 0.05 45);
-  --border: oklch(0.34 0.025 252);
-}
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   html {
-    @apply scroll-smooth font-sans;
+    @apply scroll-smooth;
   }
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
   }
   a,
   button {
@@ -85,13 +57,19 @@
 
 @layer components {
   .site-shell {
-    @apply relative mx-auto min-h-screen max-w-[1440px] px-5 sm:px-8 lg:px-12;
+    @apply relative mx-auto min-h-screen;
+    max-width: var(--content-max);
+    padding-inline: var(--shell-gutter);
   }
   .skip-link {
-    @apply fixed top-3 left-3 z-[100] -translate-y-20 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-transform focus:translate-y-0;
+    @apply fixed top-3 left-3 z-[100] -translate-y-20 bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-transform focus:translate-y-0;
+    border-radius: var(--control-radius);
   }
   .announcement {
-    @apply -mx-5 flex min-h-10 items-center justify-center gap-3 border-b bg-secondary px-5 py-2 text-center text-xs sm:-mx-8 sm:text-sm lg:-mx-12;
+    @apply flex min-h-10 items-center justify-center gap-3 border-b bg-secondary py-2 text-center text-xs sm:text-sm;
+    margin-inline: calc(var(--shell-gutter) * -1);
+    padding-inline: var(--shell-gutter);
+    border-width: 0 0 var(--border-width);
   }
   .announcement p {
     @apply text-muted-foreground;
@@ -103,13 +81,17 @@
     @apply size-3.5;
   }
   .site-header {
-    @apply relative z-40 flex h-20 items-center justify-between border-b bg-background/90 backdrop-blur-md;
+    @apply relative z-40 flex items-center justify-between border-b bg-background/90 backdrop-blur-md;
+    height: var(--header-height);
+    border-width: 0 0 var(--border-width);
   }
   .brand {
     @apply inline-flex items-center gap-3 text-[0.95rem] font-semibold tracking-tight;
   }
   .brand-mark {
-    @apply relative block h-7 w-7 rounded-full border border-current;
+    @apply relative block h-7 w-7 border border-current;
+    border-width: var(--border-width);
+    border-radius: var(--ornament-radius);
   }
   .brand-mark span:first-child {
     @apply absolute top-[5px] left-[8px] h-4 w-px rotate-[28deg] bg-current;
@@ -124,7 +106,8 @@
     @apply mr-3 flex items-center gap-1;
   }
   .site-navigation-link {
-    @apply rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground;
+    @apply px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground;
+    border-radius: var(--control-radius);
   }
   .mobile-header-actions {
     @apply flex items-center gap-1 md:hidden;
@@ -133,7 +116,9 @@
     @apply relative;
   }
   .mobile-navigation-panel {
-    @apply absolute top-12 right-0 w-[min(20rem,calc(100vw-2.5rem))] rounded-xl border bg-card p-3 shadow-xl;
+    @apply absolute top-12 right-0 w-[min(20rem,calc(100vw-2.5rem))] border bg-card p-3 shadow-xl;
+    border-width: var(--border-width);
+    border-radius: var(--panel-radius);
   }
   .mobile-navigation-panel[hidden] {
     @apply hidden;
@@ -142,40 +127,67 @@
     @apply mb-3 grid gap-1;
   }
   .mobile-navigation-link {
-    @apply rounded-lg px-3 py-3 text-sm font-medium transition-colors hover:bg-secondary;
+    @apply px-3 py-3 text-sm font-medium transition-colors hover:bg-secondary;
+    border-radius: var(--control-radius);
   }
   .hero {
-    @apply relative overflow-hidden border-b py-20 sm:py-28 lg:min-h-[680px] lg:py-32;
+    @apply relative overflow-hidden border-b lg:min-h-[680px];
+    padding-block: var(--hero-space);
+    border-width: 0 0 var(--border-width);
+    text-align: var(--hero-text-align);
   }
   .eyebrow {
-    @apply mb-7 flex items-center gap-2 text-xs font-semibold tracking-[0.16em] text-muted-foreground uppercase;
+    @apply mb-7 flex items-center gap-2 text-xs font-semibold text-muted-foreground;
+    width: fit-content;
+    margin-inline: var(--hero-margin);
+    letter-spacing: var(--eyebrow-tracking);
+    text-transform: var(--eyebrow-transform);
   }
   .eyebrow span {
-    @apply size-1.5 rounded-full bg-[var(--accent)];
+    @apply size-1.5 bg-[var(--accent)];
+    border-radius: var(--control-radius);
   }
   .hero h1 {
-    @apply max-w-5xl text-5xl leading-[0.94] font-semibold tracking-[-0.055em] text-balance sm:text-7xl lg:text-8xl;
+    @apply text-5xl leading-[0.94] text-balance sm:text-7xl lg:text-8xl;
+    max-width: var(--hero-title-max);
+    margin-inline: var(--hero-margin);
+    font-family: var(--font-heading);
+    font-weight: var(--heading-weight);
+    letter-spacing: var(--heading-tracking);
   }
   .hero-copy {
-    @apply mt-8 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl;
+    @apply mt-8 text-lg leading-8 text-muted-foreground sm:text-xl;
+    max-width: var(--hero-copy-max);
+    margin-inline: var(--hero-margin);
   }
   .hero-actions {
-    @apply mt-10 flex max-w-3xl flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center;
+    @apply mt-10 flex max-w-3xl flex-col gap-4 sm:flex-row sm:flex-wrap;
+    align-items: var(--hero-item-align);
+    justify-content: var(--hero-actions-justify);
+    margin-inline: var(--hero-margin);
   }
   .secondary-action {
-    @apply inline-flex items-center gap-2 rounded-md px-2 py-2 text-sm font-semibold underline decoration-border underline-offset-4 transition-colors hover:text-[var(--accent)];
+    @apply inline-flex items-center gap-2 px-2 py-2 text-sm font-semibold underline decoration-border underline-offset-4 transition-colors hover:text-[var(--accent)];
+    border-radius: var(--control-radius);
   }
   .secondary-action svg {
     @apply size-4;
   }
   .hero-actions code {
-    @apply rounded-md border bg-card px-4 py-3 text-xs text-muted-foreground;
+    @apply border bg-card px-4 py-3 text-xs text-muted-foreground;
+    border-width: var(--border-width);
+    border-radius: var(--control-radius);
   }
   .horizon {
-    @apply pointer-events-none absolute right-[-6rem] bottom-[-10rem] hidden size-[34rem] rounded-full border lg:block;
+    @apply pointer-events-none absolute right-[-6rem] bottom-[-10rem] hidden size-[34rem] border lg:block;
+    border-width: var(--border-width);
+    border-radius: var(--ornament-radius);
+    opacity: var(--ornament-opacity);
   }
   .horizon span {
-    @apply absolute inset-[12%] rounded-full border;
+    @apply absolute inset-[12%] border;
+    border-width: var(--border-width);
+    border-radius: var(--ornament-radius);
   }
   .horizon span:nth-child(2) {
     @apply inset-[27%] border-[var(--accent)]/50;
@@ -184,19 +196,29 @@
     @apply inset-[43%] bg-[var(--accent)]/10;
   }
   .content-section {
-    @apply scroll-mt-24 py-20 sm:py-28;
+    @apply scroll-mt-24;
+    padding-block: var(--section-space);
   }
   .section-heading {
-    @apply grid gap-4 border-b pb-10 sm:grid-cols-[1fr_3fr];
+    @apply grid gap-4 border-b pb-10;
+    border-width: 0 0 var(--border-width);
+    text-align: var(--section-text-align);
   }
   .section-heading > p {
-    @apply text-xs font-semibold tracking-[0.16em] text-[var(--accent)] uppercase;
+    @apply text-xs font-semibold text-[var(--accent)];
+    letter-spacing: var(--eyebrow-tracking);
+    text-transform: var(--eyebrow-transform);
   }
   .section-heading h2 {
-    @apply max-w-4xl text-3xl font-semibold tracking-[-0.035em] text-balance sm:text-5xl;
+    @apply max-w-4xl text-3xl text-balance sm:text-5xl;
+    margin-inline: var(--hero-margin);
+    font-family: var(--font-heading);
+    font-weight: var(--heading-weight);
+    letter-spacing: var(--heading-tracking);
   }
   .section-description {
     @apply mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg;
+    margin-inline: var(--hero-margin);
   }
   .foundation-grid {
     @apply grid md:grid-cols-3;
@@ -214,13 +236,16 @@
     @apply text-xs tabular-nums;
   }
   .foundation-card h3 {
-    @apply mt-16 text-xl font-semibold tracking-tight;
+    @apply mt-16 text-xl;
+    font-family: var(--font-heading);
+    font-weight: var(--heading-weight);
+    letter-spacing: var(--heading-tracking);
   }
   .foundation-card p {
     @apply mt-3 max-w-sm text-sm leading-6 text-muted-foreground;
   }
   .principles-section {
-    @apply border-t;
+    border-top: var(--border-width) solid var(--border);
   }
   .principles-grid {
     @apply grid border-b sm:grid-cols-3;
@@ -232,7 +257,8 @@
     @apply text-xs font-normal text-muted-foreground tabular-nums;
   }
   .site-footer {
-    @apply grid gap-12 border-t py-12 text-sm sm:grid-cols-[minmax(0,1.4fr)_minmax(0,2fr)] sm:py-16;
+    @apply grid gap-12 border-t py-12 text-sm sm:py-16;
+    border-width: var(--border-width) 0 0;
   }
   .footer-intro p {
     @apply mt-5 max-w-xs leading-6 text-muted-foreground;
@@ -244,7 +270,9 @@
     @apply flex flex-col items-start gap-3;
   }
   .footer-groups h2 {
-    @apply mb-1 text-xs font-semibold tracking-[0.12em] text-muted-foreground uppercase;
+    @apply mb-1 text-xs font-semibold text-muted-foreground;
+    letter-spacing: var(--eyebrow-tracking);
+    text-transform: var(--eyebrow-transform);
   }
   .footer-groups a,
   .footer-legal a {
@@ -252,9 +280,23 @@
   }
   .footer-legal {
     @apply flex flex-col gap-3 border-t pt-6 text-xs text-muted-foreground sm:col-span-2 sm:flex-row sm:items-center sm:justify-between;
+    border-width: var(--border-width) 0 0;
   }
   .footer-legal div {
     @apply flex flex-wrap gap-4;
+  }
+  [data-slot="button"],
+  [data-slot="dropdown-menu-content"] {
+    border-radius: var(--control-radius);
+  }
+}
+
+@media (min-width: 40rem) {
+  .section-heading {
+    grid-template-columns: var(--section-columns);
+  }
+  .site-footer {
+    grid-template-columns: var(--footer-columns);
   }
 }
 

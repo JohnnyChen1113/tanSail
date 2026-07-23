@@ -47,9 +47,15 @@ buttons are for actions that do not navigate.
 Keeping the route schema explicit means a misspelled configured path fails type checking instead
 of becoming a broken production link.
 
-## Prepare for visual presets
+## Work with visual presets
 
 Do not put brand colors directly into section components. Use the semantic variables in
 `src/styles.css` (`--background`, `--foreground`, `--primary`, `--secondary`, `--accent`, and
-`--border`). Phase three will switch these tokens and broader composition rules without changing
-the site configuration contract.
+`--border`). Typography, density, geometry, color, and composition are defined together in
+`src/config/presets.ts`, so a component can respond to every preset without branching on a preset
+name.
+
+Use existing semantic variables before adding a new one. When a component needs a genuinely new
+visual role, add the token to the preset schema, provide a value in every preset, and consume it in
+`src/styles.css`. See [Visual presets](visual-presets.md) for the full contract and screenshot
+workflow.

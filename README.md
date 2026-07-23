@@ -18,6 +18,7 @@ or required secrets.
 - Light, dark, and system themes without a flash of the wrong theme
 - Zod-validated site identity, navigation, calls to action, social links, and footer config
 - Reusable accessible announcement, header, mobile navigation, section, and footer components
+- Harbor, Horizon, and Nightwatch visual presets with a flash-free persisted selector
 - Central SEO metadata with config-driven `sitemap.xml` and `robots.txt`
 - Cloudflare Workers through the official Vite plugin and Wrangler
 - Vite+ for formatting, linting, type checking, testing, and builds
@@ -46,11 +47,13 @@ The site is available at `http://localhost:3000`. No `.env` file is needed by de
 ```bash
 pnpm check
 pnpm test
+pnpm test:visual
 pnpm build
 ```
 
 `pnpm check` formats, lints, and type-checks the project. The production build also prerenders
-public routes and creates the Cloudflare Worker bundle.
+public routes and creates the Cloudflare Worker bundle. Visual tests compare every preset at
+desktop and mobile sizes; see the visual preset guide for browser setup and baseline updates.
 
 ## Deploy to Cloudflare
 
@@ -68,6 +71,8 @@ configuration; TanSail does not ship a project-specific domain.
   components.
 - Use the [component-level guide](./docs/component-customization.md) when changing structure,
   navigation behavior, section composition, or design tokens.
+- Follow the [visual preset guide](./docs/visual-presets.md) to select, extend, and regression-test
+  the appearance system.
 - Add shadcn/ui primitives with `vpr ui add <component>`.
 - Follow [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md) for the public roadmap.
 

@@ -109,6 +109,9 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  test: {
+    include: ["src/**/*.test.{ts,tsx}"],
+  },
   plugins: lazyPlugins(() => [
     !process.env.VITEST && cloudflare({ viteEnvironment: { name: "ssr" } }),
     tanstackStart({

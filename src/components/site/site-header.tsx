@@ -1,5 +1,6 @@
 import { ArrowUpRightIcon } from "lucide-react";
 
+import { PresetToggle } from "#/components/preset-toggle";
 import { ThemeToggle } from "#/components/theme-toggle";
 import { buttonVariants } from "#/components/ui/button";
 import type { SiteConfig } from "#/config/site";
@@ -20,6 +21,7 @@ export function SiteHeader({ config }: { readonly config: SiteConfig }) {
           ))}
         </nav>
 
+        <PresetToggle />
         <ThemeToggle />
         <SiteLink className={buttonVariants({ size: "lg" })} link={config.actions.primary}>
           {config.actions.primary.label}
@@ -28,6 +30,7 @@ export function SiteHeader({ config }: { readonly config: SiteConfig }) {
       </div>
 
       <div className="mobile-header-actions">
+        <PresetToggle />
         <ThemeToggle />
         <MobileNavigation config={config} />
       </div>

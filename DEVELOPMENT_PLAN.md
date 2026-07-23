@@ -35,12 +35,12 @@ projects that informed the product research.
 
 ## Phase 3 — visual preset system
 
-- [ ] Define semantic design tokens independent of section components.
-- [ ] Ship the editorial `Harbor` preset.
-- [ ] Ship the product-led `Horizon` preset.
-- [ ] Ship the high-contrast `Nightwatch` preset.
-- [ ] Allow presets to change typography, density, geometry, color, and visual composition.
-- [ ] Add responsive visual regression coverage for every preset.
+- [x] Define semantic design tokens independent of section components.
+- [x] Ship the editorial `Harbor` preset.
+- [x] Ship the product-led `Horizon` preset.
+- [x] Ship the high-contrast `Nightwatch` preset.
+- [x] Allow presets to change typography, density, geometry, color, and visual composition.
+- [x] Add responsive visual regression coverage for every preset.
 
 ## Phase 4 — landing-page block library
 

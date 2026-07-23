@@ -16,6 +16,8 @@
     "preview": "vp preview",
     "start": "wrangler dev",
     "test": "vp test run",
+    "test:visual": "playwright test",
+    "test:visual:update": "playwright test --update-snapshots",
     "lint": "vp lint --type-aware --type-check",
     "lint:fix": "vp lint --type-aware --type-check --fix",
     "format": "vp fmt",
@@ -45,6 +47,7 @@
   "devDependencies": {
     "@babel/core": "8.0.1",
     "@cloudflare/vite-plugin": "1.46.0",
+    "@playwright/test": "1.61.1",
     "@rolldown/plugin-babel": "0.2.3",
     "@tailwindcss/vite": "4.3.3",
     "@tanstack/eslint-plugin-router": "1.162.0",
