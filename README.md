@@ -1,111 +1,78 @@
-# [TanStarter](https://github.com/mugnavo/tanstarter)
+# TanSail
 
-> [!IMPORTANT]
-> This template now requires [Vite+ `vp`](https://viteplus.dev/guide/#install-vp) to be installed, and uses [pnpm](https://pnpm.io/installation) by default.
+Set a better course for your next website.
 
-<!-- scaffold:description -->
+TanSail is an independent, design-first [TanStack Start](https://tanstack.com/start/latest)
+starter for [Cloudflare Workers](https://developers.cloudflare.com/workers/). The default
+project is intentionally small: it has no database, authentication provider, payment service,
+or required secrets.
 
-A minimal starter template for 🏝️ TanStack Start. [→ Preview here](https://tanstarter.mugnavo.com/)
+> TanSail is a community project and is not affiliated with or endorsed by TanStack, ShipAny,
+> or the reference projects used during its design research.
+
+## Foundation
+
+- React 19 and the React Compiler
+- TanStack Start and TanStack Router
+- Tailwind CSS 4, shadcn/ui, Base UI, and Lucide icons
+- Light, dark, and system themes without a flash of the wrong theme
+- Cloudflare Workers through the official Vite plugin and Wrangler
+- Vite+ for formatting, linting, type checking, testing, and builds
+- Prerendering enabled for public pages
+
+Authentication, databases, billing, analytics, email, and content systems will be offered as
+optional recipes. They are not coupled to the starter core.
+
+## Requirements
+
+- Node.js 24 or newer
+- pnpm 11 or newer
+- [Vite+](https://viteplus.dev/guide/#install-vp), which provides `vp`, `vpr`, and `vpx`
+
+## Local development
 
 ```bash
-pnpm create mugnavo
+pnpm install
+pnpm dev
 ```
 
-- [React 19](https://react.dev) + [React Compiler](https://react.dev/learn/react-compiler)
-- TanStack [Start](https://tanstack.com/start/latest) + [Router](https://tanstack.com/router/latest) + [Query](https://tanstack.com/query/latest)
-- [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + [Base UI](https://base-ui.com/) (base-rhea, [`--preset b1au68YWO`](https://ui.shadcn.com/create?preset=b1au68YWO&base=base&template=start&pointer=true))
-- [Vite 8](https://vite.dev) + [Nitro v3](https://nitro.build/)
-- [Drizzle ORM](https://orm.drizzle.team/) + PostgreSQL
-- [Better Auth](https://better-auth.com/)
-- [Vite Plus](https://viteplus.dev/) + [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) + [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html)
+The site is available at `http://localhost:3000`. No `.env` file is needed by default.
 
-> [!TIP]
-> This template is also available as a monorepo, powered by Vite+ and pnpm workspaces. See [mugnavo/tanstarter-monorepo](https://github.com/mugnavo/tanstarter-monorepo).
+## Quality checks
 
-## Getting Started
+```bash
+pnpm check
+pnpm test
+pnpm build
+```
 
-#### Prerequisites
+`pnpm check` formats, lints, and type-checks the project. The production build also prerenders
+public routes and creates the Cloudflare Worker bundle.
 
-- [Node.js](https://nodejs.org/en/download) >= 24
-- [pnpm](https://pnpm.io/installation) >= 11
-- [Vite Plus](https://viteplus.dev/guide/#install-vp) (`vp`)
+## Deploy to Cloudflare
 
-#### Setup
+1. Authenticate Wrangler once with `pnpm wrangler login`.
+2. Change the worker name in `wrangler.jsonc` if needed.
+3. Run `pnpm deploy`.
 
-1. [Use this template](https://github.com/new?template_name=tanstarter&template_owner=mugnavo) or create a project using our CLI:
+Custom domains, bindings, environment variables, and secrets belong in your own Wrangler
+configuration; TanSail does not ship a project-specific domain.
 
-   ```bash
-   pnpm create mugnavo
-   ```
+## Customize
 
-2. Create a `.env` file based on [`.env.example`](./.env.example).
+- Replace the starter route in `src/routes/index.tsx`.
+- Adjust semantic colors and typography in `src/styles.css`.
+- Add shadcn/ui primitives with `vpr ui add <component>`.
+- Follow [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md) for the public roadmap.
 
-3. Generate the initial migration with drizzle-kit, then apply to your database:
+Keep credentials out of Git. If a future module needs environment variables, document safe
+example names in `.env.example` without adding real values.
 
-   ```sh
-   vpr db generate
-   vpr db migrate
-   ```
+## Clean-room commitment
 
-   https://orm.drizzle.team/docs/migrations
+TanSail may learn from public interfaces and general product patterns, but it does not copy
+closed-source ShipAny code, assets, or proprietary content. The project is also independent
+from the Ten Gods application that preceded it.
 
-4. Run the development server:
-
-   ```bash
-   vpr dev
-   ```
-
-   The development server should now be running at [http://localhost:3000](http://localhost:3000).
-
-## Deploying to production
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/66acdee6-8e42-436f-9943-a67cad998f63/deploy-status)](https://app.netlify.com/projects/mugnavo-tanstarter/deploys)
-
-The [vite config](./vite.config.ts#L130-L131) is configured to use Nitro by default, which supports many [deployment presets](https://nitro.build/deploy) like Netlify, Vercel, Node.js, and more.
-
-Refer to the [TanStack Start hosting docs](https://tanstack.com/start/latest/docs/framework/react/guide/hosting) for more information.
-
-## Issue watchlist
-
-- [Router/Start issues](https://github.com/TanStack/router/issues) - TanStack Start is in RC.
-- [Devtools releases](https://github.com/TanStack/devtools/releases) - TanStack Devtools is in alpha and may still have breaking changes.
-- [Nitro v3 beta](https://nitro.build/blog/v3-beta) - The template is configured with Nitro v3 beta by default.
-- [Drizzle ORM v1 RC](https://orm.drizzle.team/docs/relations-v1-v2) - Drizzle ORM v1 is in RC with relations v2.
-- [Better Auth releases](https://github.com/better-auth/better-auth/releases) - We're using Better Auth v1.7 RC which supports Drizzle Relations v2.
-- [Vite+ releases](https://github.com/voidzero-dev/vite-plus/releases) - Vite+ is in beta.
-
-## Goodies
-
-#### Upgrading dependencies
-
-Dependency versions are pinned, so they may be slightly outdated when you create your project. To selectively upgrade packages, run `vpr deps` or `vpx taze@latest -Ilw --maturity-period 3`.
-
-#### Scripts
-
-Check [package.json](./package.json) for the full list of available scripts.
-
-- **`auth:generate`** - Regenerate the [auth db schema](./src/lib/db/schema/auth.schema.ts) if you've made changes to your Better Auth [config](./src/lib/auth/auth.ts).
-- **`db`** - Run [drizzle-kit](https://orm.drizzle.team/docs/kit-overview) commands. (e.g. `vpr db generate`, `vpr db studio`)
-- **`ui`** - The shadcn/ui CLI. (e.g. `vpr ui add button`)
-- **`format`**, **`lint`** - Run Oxfmt and Oxlint, or both via `vpr check`.
-- **`deps`** - Selectively upgrade dependencies via taze.
-
-#### Utilities
-
-- [`auth/middleware.ts`](./src/lib/auth/middleware.ts) - Sample middleware for enforcing authentication on server functions & API routes.
-- [`theme-toggle.tsx`](./src/components/theme-toggle.tsx), [`theme-provider.tsx`](./src/components/theme-provider.tsx) - A theme toggle and provider for toggling between light and dark mode.
-
-## License
-
-Code in this template is public domain via [Unlicense](./LICENSE). Feel free to remove or replace for your own project.
-
-## Ecosystem
-
-- [@tanstack/intent](https://tanstack.com/intent/latest/docs/getting-started/quick-start-consumers) - Up-to-date skills for your AI agents, auto-synchronized from your installed dependencies.
-- [awesome-tanstack-start](https://github.com/Balastrong/awesome-tanstack-start) - A curated list of awesome resources for TanStack Start.
-- [shadcn/ui Directory](https://ui.shadcn.com/docs/directory), [shoogle.dev](https://shoogle.dev/) - Component directories & registries for shadcn/ui.
-
-## Related templates
-
-- [mugnavo/tanstarter-monorepo](https://github.com/mugnavo/tanstarter-monorepo) - A minimal monorepo version of this template, powered by Vite+ and pnpm workspaces.
-- [tsu-moe/tsu-stack](https://github.com/tsu-moe/tsu-stack) - An opinionated and batteries-included monorepo template from Luzefiru, built on tanstarter-monorepo, with Paraglide.js (i18n), Hono, oRPC, and more.
+The initial repository history retains the public TanStarter baseline it was created from.
+Subsequent TanSail work is released under the [MIT License](./LICENSE).

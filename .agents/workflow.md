@@ -2,17 +2,16 @@
 
 ## Commands
 
-- `vpr build`: Only for build/bundler issues or verifying production output
-- `vpr lint`: Covers both type-aware linting and type checking. No need to run `tsc --noEmit`
-- `vpr dev` runs indefinitely in watch mode
-- `vpr db` for Drizzle Kit commands (e.g. `vpr db generate` to generate a migration)
+- `vpr dev`: run the local development server.
+- `vpr check`: format, lint, and type-check.
+- `vpr test run`: execute the test suite once.
+- `vpr build`: build and prerender the Cloudflare Worker bundle.
+- `vpr deploy`: build and publish with Wrangler.
+- `vpr ui add <component>`: add a shadcn/ui primitive.
 
-Don't build after every change. If lint passes; assume changes work.
+## Change discipline
 
-## Testing
-
-Vitest hasn't been set up yet. Prefer lint checks for now.
-
-## Formatting
-
-Oxfmt (via Vite+) is configured for consistent code formatting via `vpr format`. It runs automatically on commit via Vite+ pre-commit hooks, so manual formatting is not necessary.
+- Keep dependency versions exact.
+- Add optional capabilities as removable recipes rather than core dependencies.
+- Run checks once a coherent change is ready, then run the production build before publishing.
+- Update the roadmap checklist when a task becomes demonstrably complete.

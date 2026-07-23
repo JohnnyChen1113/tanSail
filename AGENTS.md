@@ -1,47 +1,29 @@
-# Agent Guidelines
+# Agent guidelines
 
 ## Essentials
 
-- Stack: TypeScript + React (TanStack Start), with Drizzle ORM, shadcn/ui, and Better Auth.
-- Use shadcn CLI (`vpr ui add <component>`) for adding new UI components & primitives.
-- Use `lucide-react` for UI icons (use `Icon` suffix, e.g. `import { Loader2Icon } from "lucide-react"`); for brand icons use `@icons-pack/react-simple-icons` (e.g. `SiGithub`).
-- Don't build after every little change. If `vpr lint` passes; assume changes work.
-- For running scripts, use `vpr`, which is a shorthand for `vp run`.
+- Stack: TypeScript, React 19, TanStack Start and Router, Tailwind CSS, and shadcn/ui.
+- Target: Cloudflare Workers through the official Cloudflare Vite plugin.
+- Keep authentication, databases, billing, email, analytics, and CMS integrations optional.
+- Never add project-specific domains, credentials, or application content to the starter core.
+- Use the shadcn CLI (`vpr ui add <component>`) when adding UI primitives.
+- Use `lucide-react` icons with the `Icon` suffix.
+- Prefer typed configuration and semantic design tokens over hard-coded page variants.
+- For scripts use `vpr`, the Vite+ shorthand for `vp run`.
 
-## Topic-specific Guidelines
+## Before substantial changes
 
-- [TanStack patterns](.agents/tanstack-patterns.md) - Routing, data fetching, loaders, server functions, environment shaking
-- [Auth patterns](.agents/auth.md) - Route guards, middleware, auth utilities
-- [TypeScript conventions](.agents/typescript.md) - Casting rules, prefer type inference
-- [Workflow](.agents/workflow.md) - Workflow commands, validation approach
+- Run `vpx @tanstack/intent@latest list` from the repository root.
+- Load any matching TanStack skill before editing.
+- Read relevant guidance under `.agents/`.
 
-<!-- intent-skills:start -->
+## Validation
 
-## Skill Loading
+- Run `vp install` after dependency changes.
+- Run `vp check`, `vp test run`, and `vp build` before publishing a completed phase.
+- Keep `DEVELOPMENT_PLAN.md` checkboxes synchronized with completed work.
 
-Before editing files for a substantial task:
+## Independence
 
-- Run `vpx @tanstack/intent@latest list` from the workspace root to see available local skills.
-- If a listed skill matches the task, run `vpx @tanstack/intent@latest load <package>#<skill>` before changing files.
-- Use the loaded `SKILL.md` guidance while making the change.
-- Monorepos: when working across packages, run the skill check from the workspace root and prefer the local skill for the package being changed.
-- Multiple matches: prefer the most specific local skill for the package or concern you are changing; load additional skills only when the task spans multiple packages or concerns.
-
-<!-- intent-skills:end -->
-
-<!--VITE PLUS START-->
-
-# Using Vite+, the Unified Toolchain for the Web
-
-This project is using Vite+, a unified toolchain built on top of Vite, Rolldown, Vitest, tsdown, Oxlint, Oxfmt, and Vite Task. Vite+ wraps runtime management, package management, and frontend tooling in a single global CLI called `vp`. Vite+ is distinct from Vite, and it invokes Vite through `vp dev` and `vp build`. Run `vp help` to print a list of commands and `vp <command> --help` for information about a specific command.
-
-Docs are local at `node_modules/vite-plus/docs` or online at https://viteplus.dev/guide/.
-
-## Review Checklist
-
-- [ ] Run `vp install` after pulling remote changes and before getting started.
-- [ ] Run `vp check` and `vp test` to format, lint, type check and test changes.
-- [ ] Check if there are `vite.config.ts` tasks or `package.json` scripts necessary for validation, run via `vp run <script>`.
-- [ ] If setup, runtime, or package-manager behavior looks wrong, run `vp env doctor` and include its output when asking for help.
-
-<!--VITE PLUS END-->
+TanSail is a clean-room community project. Do not copy closed-source ShipAny implementation,
+assets, or content. Do not migrate domain content from unrelated applications into this repo.

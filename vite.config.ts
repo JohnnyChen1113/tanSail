@@ -1,9 +1,8 @@
+import { cloudflare } from "@cloudflare/vite-plugin";
 import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
-import { devtools } from "@tanstack/devtools-vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact, { reactCompilerPreset } from "@vitejs/plugin-react";
-import { nitro } from "nitro/vite";
 import { defineConfig, lazyPlugins } from "vite-plus";
 
 import { version } from "./package.json";
@@ -38,9 +37,7 @@ export default defineConfig({
       "routeTree.gen.ts",
       ".tanstack-start/",
       ".tanstack/",
-      "drizzle/",
       "migrations/",
-      ".drizzle/",
       ".cache",
       "worker-configuration.d.ts",
       ".vercel",
@@ -71,10 +68,9 @@ export default defineConfig({
         specifier: "@tanstack/eslint-plugin-router",
       },
       {
-        name: "eslint-tanstack-query",
-        specifier: "@tanstack/eslint-plugin-query",
+        name: "vite-plus",
+        specifier: "vite-plus/oxlint-plugin",
       },
-      { name: "vite-plus", specifier: "vite-plus/oxlint-plugin" },
     ],
     rules: {
       "vite-plus/prefer-vite-plus-imports": "warn",
@@ -90,14 +86,6 @@ export default defineConfig({
       "react/react-compiler": "warn",
 
       "eslint-tanstack-router/create-route-property-order": "warn",
-
-      "eslint-tanstack-query/exhaustive-deps": "warn",
-      "eslint-tanstack-query/stable-query-client": "warn",
-      "eslint-tanstack-query/no-rest-destructuring": "warn",
-      "eslint-tanstack-query/no-unstable-deps": "warn",
-      "eslint-tanstack-query/infinite-query-property-order": "warn",
-      "eslint-tanstack-query/no-void-query-fn": "warn",
-      "eslint-tanstack-query/mutation-property-order": "warn",
     },
     ignorePatterns: [
       "dist",
@@ -122,13 +110,15 @@ export default defineConfig({
     port: 3000,
   },
   plugins: lazyPlugins(() => [
-    devtools({
-      // https://tanstack.com/devtools/latest/docs/vite-plugin#console-piping
-      consolePiping: { enabled: false },
+    !process.env.VITEST && cloudflare({ viteEnvironment: { name: "ssr" } }),
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        crawlLinks: true,
+        concurrency: 10,
+        failOnError: true,
+      },
     }),
-    tanstackStart(),
-    // https://tanstack.com/start/latest/docs/framework/react/guide/hosting
-    nitro(),
     viteReact(),
     // https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#react-compiler
     babel({
