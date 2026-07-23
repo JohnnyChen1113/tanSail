@@ -26,12 +26,12 @@ projects that informed the product research.
 
 ## Phase 2 — configurable site shell
 
-- [ ] Add a typed site configuration contract for metadata, navigation, calls to action,
+- [x] Add a typed site configuration contract for metadata, navigation, calls to action,
       social links, and footer groups.
-- [ ] Build reusable header, mobile navigation, footer, announcement, and section primitives.
-- [ ] Add accessible navigation states, skip links, focus styles, and reduced-motion behavior.
-- [ ] Add SEO defaults, social metadata, sitemap, robots, and favicon replacement guidance.
-- [ ] Document content-only customization and component-level customization separately.
+- [x] Build reusable header, mobile navigation, footer, announcement, and section primitives.
+- [x] Add accessible navigation states, skip links, focus styles, and reduced-motion behavior.
+- [x] Add SEO defaults, social metadata, sitemap, robots, and favicon replacement guidance.
+- [x] Document content-only customization and component-level customization separately.
 
 ## Phase 3 — visual preset system
 

@@ -16,6 +16,9 @@ or required secrets.
 - TanStack Start and TanStack Router
 - Tailwind CSS 4, shadcn/ui, Base UI, and Lucide icons
 - Light, dark, and system themes without a flash of the wrong theme
+- Zod-validated site identity, navigation, calls to action, social links, and footer config
+- Reusable accessible announcement, header, mobile navigation, section, and footer components
+- Central SEO metadata with config-driven `sitemap.xml` and `robots.txt`
 - Cloudflare Workers through the official Vite plugin and Wrangler
 - Vite+ for formatting, linting, type checking, testing, and builds
 - Prerendering enabled for public pages
@@ -60,8 +63,11 @@ configuration; TanSail does not ship a project-specific domain.
 
 ## Customize
 
-- Replace the starter route in `src/routes/index.tsx`.
-- Adjust semantic colors and typography in `src/styles.css`.
+- Start with the [content-only guide](./docs/content-customization.md) to change identity,
+  metadata, navigation, calls to action, footer content, and homepage copy without editing shell
+  components.
+- Use the [component-level guide](./docs/component-customization.md) when changing structure,
+  navigation behavior, section composition, or design tokens.
 - Add shadcn/ui primitives with `vpr ui add <component>`.
 - Follow [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md) for the public roadmap.
 

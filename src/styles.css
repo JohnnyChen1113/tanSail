@@ -70,6 +70,10 @@
   body {
     @apply bg-background text-foreground antialiased;
   }
+  a,
+  button {
+    @apply focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring;
+  }
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
@@ -81,10 +85,25 @@
 
 @layer components {
   .site-shell {
-    @apply mx-auto min-h-screen max-w-[1440px] px-5 sm:px-8 lg:px-12;
+    @apply relative mx-auto min-h-screen max-w-[1440px] px-5 sm:px-8 lg:px-12;
+  }
+  .skip-link {
+    @apply fixed top-3 left-3 z-[100] -translate-y-20 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-transform focus:translate-y-0;
+  }
+  .announcement {
+    @apply -mx-5 flex min-h-10 items-center justify-center gap-3 border-b bg-secondary px-5 py-2 text-center text-xs sm:-mx-8 sm:text-sm lg:-mx-12;
+  }
+  .announcement p {
+    @apply text-muted-foreground;
+  }
+  .announcement-link {
+    @apply inline-flex items-center gap-1 font-semibold underline decoration-border underline-offset-4 transition-colors hover:text-[var(--accent)];
+  }
+  .announcement-link svg {
+    @apply size-3.5;
   }
   .site-header {
-    @apply flex h-20 items-center justify-between border-b;
+    @apply relative z-40 flex h-20 items-center justify-between border-b bg-background/90 backdrop-blur-md;
   }
   .brand {
     @apply inline-flex items-center gap-3 text-[0.95rem] font-semibold tracking-tight;
@@ -98,14 +117,32 @@
   .brand-mark span:last-child {
     @apply absolute top-[6px] left-[9px] block size-2.5 border-t border-r border-current;
   }
-  .header-actions {
-    @apply flex items-center gap-2 sm:gap-4;
+  .desktop-header-actions {
+    @apply hidden items-center gap-3 md:flex;
   }
-  .text-link {
-    @apply hidden text-sm text-muted-foreground transition-colors hover:text-foreground sm:inline;
+  .desktop-navigation {
+    @apply mr-3 flex items-center gap-1;
   }
-  .icon-link {
-    @apply grid size-9 place-items-center rounded-md text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground;
+  .site-navigation-link {
+    @apply rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground;
+  }
+  .mobile-header-actions {
+    @apply flex items-center gap-1 md:hidden;
+  }
+  .mobile-navigation {
+    @apply relative;
+  }
+  .mobile-navigation-panel {
+    @apply absolute top-12 right-0 w-[min(20rem,calc(100vw-2.5rem))] rounded-xl border bg-card p-3 shadow-xl;
+  }
+  .mobile-navigation-panel[hidden] {
+    @apply hidden;
+  }
+  .mobile-navigation-panel nav {
+    @apply mb-3 grid gap-1;
+  }
+  .mobile-navigation-link {
+    @apply rounded-lg px-3 py-3 text-sm font-medium transition-colors hover:bg-secondary;
   }
   .hero {
     @apply relative overflow-hidden border-b py-20 sm:py-28 lg:min-h-[680px] lg:py-32;
@@ -117,13 +154,19 @@
     @apply size-1.5 rounded-full bg-[var(--accent)];
   }
   .hero h1 {
-    @apply max-w-5xl text-5xl leading-[0.94] font-semibold tracking-[-0.055em] sm:text-7xl lg:text-8xl;
+    @apply max-w-5xl text-5xl leading-[0.94] font-semibold tracking-[-0.055em] text-balance sm:text-7xl lg:text-8xl;
   }
   .hero-copy {
     @apply mt-8 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl;
   }
   .hero-actions {
-    @apply mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center;
+    @apply mt-10 flex max-w-3xl flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center;
+  }
+  .secondary-action {
+    @apply inline-flex items-center gap-2 rounded-md px-2 py-2 text-sm font-semibold underline decoration-border underline-offset-4 transition-colors hover:text-[var(--accent)];
+  }
+  .secondary-action svg {
+    @apply size-4;
   }
   .hero-actions code {
     @apply rounded-md border bg-card px-4 py-3 text-xs text-muted-foreground;
@@ -140,17 +183,20 @@
   .horizon span:nth-child(3) {
     @apply inset-[43%] bg-[var(--accent)]/10;
   }
-  .foundation {
-    @apply py-20 sm:py-28;
+  .content-section {
+    @apply scroll-mt-24 py-20 sm:py-28;
   }
   .section-heading {
     @apply grid gap-4 border-b pb-10 sm:grid-cols-[1fr_3fr];
   }
-  .section-heading p {
+  .section-heading > p {
     @apply text-xs font-semibold tracking-[0.16em] text-[var(--accent)] uppercase;
   }
   .section-heading h2 {
-    @apply max-w-3xl text-3xl font-semibold tracking-[-0.035em] sm:text-5xl;
+    @apply max-w-4xl text-3xl font-semibold tracking-[-0.035em] text-balance sm:text-5xl;
+  }
+  .section-description {
+    @apply mt-5 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg;
   }
   .foundation-grid {
     @apply grid md:grid-cols-3;
@@ -173,8 +219,42 @@
   .foundation-card p {
     @apply mt-3 max-w-sm text-sm leading-6 text-muted-foreground;
   }
-  footer {
-    @apply flex flex-col gap-5 border-t py-10 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between;
+  .principles-section {
+    @apply border-t;
+  }
+  .principles-grid {
+    @apply grid border-b sm:grid-cols-3;
+  }
+  .principles-grid p {
+    @apply flex min-h-36 flex-col justify-between border-b py-6 text-sm font-semibold sm:border-r sm:border-b-0 sm:px-6 sm:first:pl-0 sm:last:border-r-0;
+  }
+  .principles-grid span {
+    @apply text-xs font-normal text-muted-foreground tabular-nums;
+  }
+  .site-footer {
+    @apply grid gap-12 border-t py-12 text-sm sm:grid-cols-[minmax(0,1.4fr)_minmax(0,2fr)] sm:py-16;
+  }
+  .footer-intro p {
+    @apply mt-5 max-w-xs leading-6 text-muted-foreground;
+  }
+  .footer-groups {
+    @apply grid grid-cols-2 gap-8 sm:grid-cols-3;
+  }
+  .footer-groups nav {
+    @apply flex flex-col items-start gap-3;
+  }
+  .footer-groups h2 {
+    @apply mb-1 text-xs font-semibold tracking-[0.12em] text-muted-foreground uppercase;
+  }
+  .footer-groups a,
+  .footer-legal a {
+    @apply text-muted-foreground transition-colors hover:text-foreground;
+  }
+  .footer-legal {
+    @apply flex flex-col gap-3 border-t pt-6 text-xs text-muted-foreground sm:col-span-2 sm:flex-row sm:items-center sm:justify-between;
+  }
+  .footer-legal div {
+    @apply flex flex-wrap gap-4;
   }
 }
 
@@ -184,5 +264,7 @@
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
