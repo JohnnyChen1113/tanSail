@@ -22,7 +22,7 @@ projects that informed the product research.
 - [x] Add a smoke test and unified format, lint, type-check, test, and build commands.
 - [x] Document local setup, customization boundaries, and Cloudflare deployment.
 - [x] Verify install, check, test, and production build from a clean dependency graph.
-- [ ] Commit and publish the completed phase to GitHub.
+- [x] Commit and publish the completed phase to GitHub.
 
 ## Phase 2 — configurable site shell
 
