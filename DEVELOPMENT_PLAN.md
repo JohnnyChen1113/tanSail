@@ -52,10 +52,10 @@ projects that informed the product research.
 
 ## Phase 5 — content and marketing
 
-- [ ] Add optional MDX documentation and blog modules.
-- [ ] Add changelog, legal-page, and contact-page recipes.
-- [ ] Add structured data helpers and share-image guidance.
-- [ ] Keep content modules removable without changing the site shell.
+- [x] Add optional MDX documentation and blog modules.
+- [x] Add changelog, legal-page, and contact-page recipes.
+- [x] Add structured data helpers and share-image guidance.
+- [x] Keep content modules removable without changing the site shell.
 
 ## Phase 6 — optional product modules
 

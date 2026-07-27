@@ -1,4 +1,5 @@
 import { cloudflare } from "@cloudflare/vite-plugin";
+import mdx from "@mdx-js/rollup";
 import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
@@ -122,7 +123,8 @@ export default defineConfig({
         failOnError: true,
       },
     }),
-    viteReact(),
+    { enforce: "pre", ...mdx() },
+    viteReact({ include: /\.(js|jsx|mdx|ts|tsx)$/ }),
     // https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#react-compiler
     babel({
       presets: [reactCompilerPreset()],

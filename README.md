@@ -20,6 +20,7 @@ or required secrets.
 - Reusable accessible announcement, header, mobile navigation, section, and footer components
 - Harbor, Horizon, and Nightwatch visual presets with a flash-free persisted selector
 - Typed hero, proof, feature, pricing, FAQ, and CTA blocks with a local design Gallery
+- Optional MDX docs/blog plus Changelog, Legal, Contact, JSON-LD, and share-image recipes
 - Central SEO metadata with config-driven `sitemap.xml` and `robots.txt`
 - Cloudflare Workers through the official Vite plugin and Wrangler
 - Vite+ for formatting, linting, type checking, testing, and builds
@@ -78,6 +79,8 @@ configuration; TanSail does not ship a project-specific domain.
   in the local Gallery.
 - Start from one of the [page recipes](./docs/page-recipes.md) for SaaS, AI, open-source, indie,
   knowledge, or consulting sites.
+- Follow the [content and marketing guide](./docs/content-and-marketing.md) to add or remove MDX,
+  structured data, and supporting marketing pages.
 - Add shadcn/ui primitives with `vpr ui add <component>`.
 - Follow [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md) for the public roadmap.
 

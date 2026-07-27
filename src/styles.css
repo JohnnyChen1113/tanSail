@@ -803,6 +803,174 @@
   .recipe-composition {
     @apply mx-auto max-w-[90rem];
   }
+  .content-index-page,
+  .content-article-page,
+  .marketing-page {
+    @apply min-h-screen bg-background px-5 text-foreground sm:px-8;
+  }
+  .content-index-header,
+  .marketing-page-header {
+    @apply mx-auto flex max-w-6xl flex-col gap-8 border-b py-10 sm:flex-row sm:items-start sm:justify-between;
+    border-width: 0 0 var(--border-width);
+  }
+  .content-index-header h1,
+  .marketing-page-header h1 {
+    @apply mt-4 max-w-4xl text-4xl leading-tight text-balance sm:text-6xl;
+    font-family: var(--font-heading);
+    font-weight: var(--heading-weight);
+    letter-spacing: var(--heading-tracking);
+  }
+  .content-index-header h1 + p,
+  .marketing-page-header h1 + p {
+    @apply mt-5 max-w-3xl text-base leading-7 text-muted-foreground;
+  }
+  .content-entry-list {
+    @apply mx-auto max-w-6xl;
+  }
+  .content-entry-list article {
+    @apply grid gap-5 border-b py-10;
+    border-width: 0 0 var(--border-width);
+  }
+  .content-entry-list article > div {
+    @apply flex gap-3 text-xs text-muted-foreground;
+  }
+  .content-entry-list h2 {
+    @apply max-w-4xl text-3xl leading-tight sm:text-4xl;
+    font-family: var(--font-heading);
+    font-weight: var(--heading-weight);
+    letter-spacing: var(--heading-tracking);
+  }
+  .content-entry-list h2 + p {
+    @apply max-w-3xl text-sm leading-7 text-muted-foreground;
+  }
+  .content-entry-list article > a {
+    @apply inline-flex w-fit items-center gap-2 text-sm font-semibold hover:text-[var(--accent)];
+  }
+  .content-entry-list article > a svg {
+    @apply size-4;
+  }
+  .content-article-toolbar {
+    @apply mx-auto flex max-w-3xl items-center justify-between border-b py-6;
+    border-width: 0 0 var(--border-width);
+  }
+  .content-article-toolbar > a {
+    @apply inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground;
+  }
+  .content-article-toolbar > a svg {
+    @apply size-4;
+  }
+  .content-article-toolbar > div {
+    @apply flex gap-2;
+  }
+  .mdx-article {
+    @apply mx-auto max-w-3xl py-14 sm:py-20;
+  }
+  .mdx-meta {
+    @apply mb-10 flex gap-3 text-xs text-muted-foreground;
+  }
+  .mdx-article h1 {
+    @apply text-4xl leading-tight text-balance sm:text-6xl;
+    font-family: var(--font-heading);
+    font-weight: var(--heading-weight);
+    letter-spacing: var(--heading-tracking);
+  }
+  .mdx-article h2 {
+    @apply mt-12 text-2xl leading-tight sm:text-3xl;
+    font-family: var(--font-heading);
+    font-weight: var(--heading-weight);
+    letter-spacing: var(--heading-tracking);
+  }
+  .mdx-article p {
+    @apply mt-6 text-base leading-8 text-muted-foreground;
+  }
+  .mdx-article h1 + p {
+    @apply text-lg leading-8;
+  }
+  .mdx-article pre {
+    @apply my-8 overflow-x-auto border bg-card p-5 text-sm;
+    border-width: var(--border-width);
+    border-radius: var(--panel-radius);
+  }
+  .mdx-article :not(pre) > code {
+    @apply bg-secondary px-1.5 py-0.5 text-sm;
+    border-radius: var(--control-radius);
+  }
+  .marketing-page-content {
+    @apply mx-auto max-w-6xl py-12 sm:py-16;
+  }
+  .changelog-list article {
+    @apply grid gap-6 border-b py-10;
+    border-width: 0 0 var(--border-width);
+  }
+  .changelog-list article > div:first-child {
+    @apply flex flex-row gap-3 text-xs text-muted-foreground sm:flex-col;
+  }
+  .changelog-list h2,
+  .legal-sections h2,
+  .contact-grid h2 {
+    @apply text-2xl sm:text-3xl;
+    font-family: var(--font-heading);
+    font-weight: var(--heading-weight);
+    letter-spacing: var(--heading-tracking);
+  }
+  .changelog-list h2 + p {
+    @apply mt-3 max-w-3xl leading-7 text-muted-foreground;
+  }
+  .changelog-list ul {
+    @apply mt-5 grid gap-2 text-sm text-muted-foreground;
+  }
+  .changelog-list li {
+    @apply relative pl-5;
+  }
+  .changelog-list li::before {
+    content: "";
+    @apply absolute top-2 left-0 size-1.5 bg-[var(--accent)];
+    border-radius: var(--control-radius);
+  }
+  .legal-effective-date {
+    @apply mb-8 text-xs text-muted-foreground;
+  }
+  .legal-sections {
+    @apply border-t;
+    border-width: var(--border-width) 0 0;
+  }
+  .legal-sections section {
+    @apply grid grid-cols-[3rem_1fr] gap-4 border-b py-8;
+    border-width: 0 0 var(--border-width);
+  }
+  .legal-sections section > span {
+    @apply text-xs text-muted-foreground;
+  }
+  .legal-sections p {
+    @apply mt-4 max-w-3xl leading-7 text-muted-foreground;
+  }
+  .contact-grid {
+    @apply grid border-t border-l;
+    border-width: var(--border-width) 0 0 var(--border-width);
+  }
+  .contact-grid article {
+    @apply flex min-h-72 flex-col border-r border-b p-6;
+    border-width: 0 var(--border-width) var(--border-width) 0;
+  }
+  .contact-grid article > p:first-child {
+    @apply text-xs font-semibold tracking-widest text-[var(--accent)] uppercase;
+  }
+  .contact-grid h2 {
+    @apply mt-10 text-xl break-all;
+  }
+  .contact-grid h2 + p {
+    @apply mt-4 text-sm leading-6 text-muted-foreground;
+  }
+  .contact-grid a {
+    @apply mt-auto inline-flex items-center gap-2 pt-8 text-sm font-semibold hover:text-[var(--accent)];
+  }
+  .contact-grid a svg {
+    @apply size-4;
+  }
+  .contact-note {
+    @apply mt-8 border-l-4 bg-secondary p-5 text-sm leading-6 text-muted-foreground;
+    border-left-color: var(--accent);
+  }
   [data-slot="button"],
   [data-slot="dropdown-menu-content"] {
     border-radius: var(--control-radius);
@@ -818,6 +986,27 @@
   }
   .recipe-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .content-entry-list article {
+    grid-template-columns: minmax(8rem, 0.4fr) minmax(0, 1.6fr) auto;
+    align-items: start;
+  }
+  .content-entry-list article > div {
+    flex-direction: column;
+  }
+  .content-entry-list article > h2,
+  .content-entry-list article > h2 + p {
+    grid-column: 2;
+  }
+  .content-entry-list article > a {
+    grid-column: 3;
+    grid-row: 1 / span 3;
+  }
+  .changelog-list article {
+    grid-template-columns: minmax(8rem, 0.4fr) minmax(0, 1.6fr);
+  }
+  .contact-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
