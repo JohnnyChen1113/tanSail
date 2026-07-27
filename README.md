@@ -75,7 +75,9 @@ configuration; TanSail does not ship a project-specific domain.
 - Follow the [visual preset guide](./docs/visual-presets.md) to select, extend, and regression-test
   the appearance system.
 - Use the [landing-page block guide](./docs/landing-blocks.md) to compose sections and compare them
-  in the development-only Gallery.
+  in the local Gallery.
+- Start from one of the [page recipes](./docs/page-recipes.md) for SaaS, AI, open-source, indie,
+  knowledge, or consulting sites.
 - Add shadcn/ui primitives with `vpr ui add <component>`.
 - Follow [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md) for the public roadmap.
 

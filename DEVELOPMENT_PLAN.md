@@ -48,6 +48,7 @@ projects that informed the product research.
 - [x] Keep block content data-driven and composable without a page builder runtime.
 - [x] Add tasteful motion primitives with reduced-motion fallbacks.
 - [x] Add a local gallery route for comparing block and preset combinations.
+- [x] Add six typed page recipes for product, open-source, knowledge, and service sites.
 
 ## Phase 5 — content and marketing
 
