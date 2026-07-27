@@ -19,6 +19,7 @@ or required secrets.
 - Zod-validated site identity, navigation, calls to action, social links, and footer config
 - Reusable accessible announcement, header, mobile navigation, section, and footer components
 - Harbor, Horizon, and Nightwatch visual presets with a flash-free persisted selector
+- Typed hero, proof, feature, pricing, FAQ, and CTA blocks with a local design Gallery
 - Central SEO metadata with config-driven `sitemap.xml` and `robots.txt`
 - Cloudflare Workers through the official Vite plugin and Wrangler
 - Vite+ for formatting, linting, type checking, testing, and builds
@@ -73,6 +74,8 @@ configuration; TanSail does not ship a project-specific domain.
   navigation behavior, section composition, or design tokens.
 - Follow the [visual preset guide](./docs/visual-presets.md) to select, extend, and regression-test
   the appearance system.
+- Use the [landing-page block guide](./docs/landing-blocks.md) to compose sections and compare them
+  in the development-only Gallery.
 - Add shadcn/ui primitives with `vpr ui add <component>`.
 - Follow [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md) for the public roadmap.
 

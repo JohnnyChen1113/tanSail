@@ -44,10 +44,10 @@ projects that informed the product research.
 
 ## Phase 4 — landing-page block library
 
-- [ ] Add multiple hero, logo-cloud, feature, use-case, testimonial, pricing, FAQ, and CTA blocks.
-- [ ] Keep block content data-driven and composable without a page builder runtime.
-- [ ] Add tasteful motion primitives with reduced-motion fallbacks.
-- [ ] Add a local gallery route for comparing block and preset combinations.
+- [x] Add multiple hero, logo-cloud, feature, use-case, testimonial, pricing, FAQ, and CTA blocks.
+- [x] Keep block content data-driven and composable without a page builder runtime.
+- [x] Add tasteful motion primitives with reduced-motion fallbacks.
+- [x] Add a local gallery route for comparing block and preset combinations.
 
 ## Phase 5 — content and marketing
 

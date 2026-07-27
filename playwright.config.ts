@@ -1,6 +1,7 @@
 import { defineConfig } from "@playwright/test";
 
 const browserChannel = process.env.TANSAIL_BROWSER_CHANNEL;
+const testPort = process.env.TANSAIL_TEST_PORT ?? "4173";
 
 export default defineConfig({
   testDir: "./tests/visual",
@@ -19,7 +20,7 @@ export default defineConfig({
   },
   use: {
     ...(browserChannel ? { channel: browserChannel } : {}),
-    baseURL: "http://127.0.0.1:3000",
+    baseURL: `http://127.0.0.1:${testPort}`,
     colorScheme: "light",
     locale: "en-US",
     trace: "retain-on-failure",
@@ -35,8 +36,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "./node_modules/.bin/vp dev --host 127.0.0.1",
-    url: "http://127.0.0.1:3000",
+    command: `./node_modules/.bin/vp dev --host 127.0.0.1 --port ${testPort}`,
+    url: `http://127.0.0.1:${testPort}`,
     reuseExistingServer: false,
     timeout: 120_000,
   },
