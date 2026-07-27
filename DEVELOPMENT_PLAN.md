@@ -66,11 +66,11 @@ projects that informed the product research.
 
 ## Phase 7 — one-prompt generation workflow
 
-- [ ] Define a stable brief schema for brand, audience, pages, sections, tone, and preset.
-- [ ] Create a TanSail Codex skill that translates a brief into typed site configuration.
-- [ ] Add guarded component selection and content-generation steps.
-- [ ] Make the workflow run checks and report unresolved content or deployment requirements.
-- [ ] Provide example prompts and generated-site fixtures.
+- [x] Define a stable brief schema for brand, audience, pages, sections, tone, and preset.
+- [x] Create a TanSail Codex skill that translates a brief into typed site configuration.
+- [x] Add guarded component selection and content-generation steps.
+- [x] Make the workflow run checks and report unresolved content or deployment requirements.
+- [x] Provide example prompts and generated-site fixtures.
 
 ## Phase 8 — community release
 

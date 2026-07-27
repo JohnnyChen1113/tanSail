@@ -15,6 +15,7 @@ import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DocsRouteImport } from './routes/docs'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as GeneratedPreviewRouteImport } from './routes/generated-preview'
 import { Route as LegalRouteImport } from './routes/legal'
 import { Route as RecipesRouteImport } from './routes/recipes'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
@@ -54,6 +55,11 @@ const DocsRoute = DocsRouteImport.update({
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GeneratedPreviewRoute = GeneratedPreviewRouteImport.update({
+  id: '/generated-preview',
+  path: '/generated-preview',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LegalRoute = LegalRouteImport.update({
@@ -114,6 +120,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/docs': typeof DocsRouteWithChildren
   '/gallery': typeof GalleryRoute
+  '/generated-preview': typeof GeneratedPreviewRoute
   '/legal': typeof LegalRoute
   '/recipes': typeof RecipesRouteWithChildren
   '/robots.txt': typeof RobotsDottxtRoute
@@ -130,6 +137,7 @@ export interface FileRoutesByTo {
   '/changelog': typeof ChangelogRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/generated-preview': typeof GeneratedPreviewRoute
   '/legal': typeof LegalRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -148,6 +156,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/docs': typeof DocsRouteWithChildren
   '/gallery': typeof GalleryRoute
+  '/generated-preview': typeof GeneratedPreviewRoute
   '/legal': typeof LegalRoute
   '/recipes': typeof RecipesRouteWithChildren
   '/robots.txt': typeof RobotsDottxtRoute
@@ -168,6 +177,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/docs'
     | '/gallery'
+    | '/generated-preview'
     | '/legal'
     | '/recipes'
     | '/robots.txt'
@@ -184,6 +194,7 @@ export interface FileRouteTypes {
     | '/changelog'
     | '/contact'
     | '/gallery'
+    | '/generated-preview'
     | '/legal'
     | '/robots.txt'
     | '/sitemap.xml'
@@ -201,6 +212,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/docs'
     | '/gallery'
+    | '/generated-preview'
     | '/legal'
     | '/recipes'
     | '/robots.txt'
@@ -220,6 +232,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DocsRoute: typeof DocsRouteWithChildren
   GalleryRoute: typeof GalleryRoute
+  GeneratedPreviewRoute: typeof GeneratedPreviewRoute
   LegalRoute: typeof LegalRoute
   RecipesRoute: typeof RecipesRouteWithChildren
   RobotsDottxtRoute: typeof RobotsDottxtRoute
@@ -268,6 +281,13 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/generated-preview': {
+      id: '/generated-preview'
+      path: '/generated-preview'
+      fullPath: '/generated-preview'
+      preLoaderRoute: typeof GeneratedPreviewRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/legal': {
@@ -387,6 +407,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DocsRoute: DocsRouteWithChildren,
   GalleryRoute: GalleryRoute,
+  GeneratedPreviewRoute: GeneratedPreviewRoute,
   LegalRoute: LegalRoute,
   RecipesRoute: RecipesRouteWithChildren,
   RobotsDottxtRoute: RobotsDottxtRoute,

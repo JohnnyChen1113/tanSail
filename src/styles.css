@@ -803,6 +803,24 @@
   .recipe-composition {
     @apply mx-auto max-w-[90rem];
   }
+  .generated-preview-header .block-eyebrow {
+    @apply flex items-center gap-2;
+  }
+  .generated-preview-header .block-eyebrow svg {
+    @apply size-4;
+  }
+  .generation-notice {
+    @apply mt-6 flex max-w-2xl items-start gap-3 border bg-[var(--accent-soft)] p-4;
+    border-width: var(--border-width);
+    border-radius: var(--control-radius);
+    border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
+  }
+  .generation-notice > svg {
+    @apply mt-0.5 size-4 shrink-0;
+  }
+  .generation-notice ul {
+    @apply mt-1 list-disc pl-4 text-sm text-muted-foreground;
+  }
   .content-index-page,
   .content-article-page,
   .marketing-page {

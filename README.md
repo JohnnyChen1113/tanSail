@@ -21,6 +21,7 @@ or required secrets.
 - Harbor, Horizon, and Nightwatch visual presets with a flash-free persisted selector
 - Typed hero, proof, feature, pricing, FAQ, and CTA blocks with a local design Gallery
 - Optional MDX docs/blog plus Changelog, Legal, Contact, JSON-LD, and share-image recipes
+- A guarded one-prompt workflow with a repository-owned Codex skill
 - Central SEO metadata with config-driven `sitemap.xml` and `robots.txt`
 - Cloudflare Workers through the official Vite plugin and Wrangler
 - Vite+ for formatting, linting, type checking, testing, and builds
@@ -81,6 +82,8 @@ configuration; TanSail does not ship a project-specific domain.
   knowledge, or consulting sites.
 - Follow the [content and marketing guide](./docs/content-and-marketing.md) to add or remove MDX,
   structured data, and supporting marketing pages.
+- Use the [one-prompt generation workflow](./docs/generation-workflow.md) to turn a brief into a
+  checked generated preview.
 - Add shadcn/ui primitives with `vpr ui add <component>`.
 - Follow [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md) for the public roadmap.
 

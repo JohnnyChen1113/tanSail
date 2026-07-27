@@ -1,5 +1,5 @@
 import { ScriptOnce } from "@tanstack/react-router";
-import { createContext, use, useEffect, useState } from "react";
+import { createContext, use, useCallback, useEffect, useState } from "react";
 
 import { presetCatalog, presetIds, type PresetId } from "#/config/presets";
 
@@ -52,10 +52,13 @@ export function PresetProvider({
     if (mounted) applyPreset(preset);
   }, [mounted, preset]);
 
-  const setPreset = (nextPreset: PresetId) => {
-    localStorage.setItem(storageKey, nextPreset);
-    setPresetState(nextPreset);
-  };
+  const setPreset = useCallback(
+    (nextPreset: PresetId) => {
+      localStorage.setItem(storageKey, nextPreset);
+      setPresetState(nextPreset);
+    },
+    [storageKey],
+  );
 
   return (
     <PresetProviderContext value={{ preset, setPreset }}>
