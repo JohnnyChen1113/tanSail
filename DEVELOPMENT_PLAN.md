@@ -62,7 +62,7 @@ projects that informed the product research.
 - [ ] Publish authentication as an opt-in recipe or package.
 - [ ] Publish database and ORM integration as an opt-in recipe or package.
 - [ ] Publish email, analytics, storage, and billing integrations as independent recipes.
-- [ ] Ensure the default starter remains deployable without secrets or external services.
+- [x] Ensure the default starter remains deployable without secrets or external services.
 
 ## Phase 7 — one-prompt generation workflow
 
@@ -74,8 +74,9 @@ projects that informed the product research.
 
 ## Phase 8 — community release
 
-- [ ] Add contribution, code-of-conduct, security, and release documentation.
-- [ ] Add issue and pull-request templates.
-- [ ] Set up CI for checks, tests, builds, and dependency review.
-- [ ] Publish tagged releases with migration notes and a public showcase.
-- [ ] Review all bundled assets, fonts, examples, and dependencies for redistribution rights.
+- [x] Add contribution, code-of-conduct, security, and release documentation.
+- [x] Add issue and pull-request templates.
+- [x] Set up CI for checks, tests, builds, visual regression, and dependency review.
+- [x] Publish the tagged `v0.1.0` release with migration notes.
+- [ ] Publish a public TanSail showcase deployment.
+- [x] Review all bundled assets, fonts, examples, and dependencies for redistribution rights.

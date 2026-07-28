@@ -2,6 +2,10 @@
 
 Set a better course for your next website.
 
+[![CI](https://github.com/JohnnyChen1113/tanSail/actions/workflows/ci.yml/badge.svg)](https://github.com/JohnnyChen1113/tanSail/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/JohnnyChen1113/tanSail)](https://github.com/JohnnyChen1113/tanSail/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+
 TanSail is an independent, design-first [TanStack Start](https://tanstack.com/start/latest)
 starter for [Cloudflare Workers](https://developers.cloudflare.com/workers/). The default
 project is intentionally small: it has no database, authentication provider, payment service,
@@ -86,6 +90,15 @@ configuration; TanSail does not ship a project-specific domain.
   checked generated preview.
 - Add shadcn/ui primitives with `vpr ui add <component>`.
 - Follow [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md) for the public roadmap.
+
+## Community and releases
+
+- Read [CONTRIBUTING.md](./CONTRIBUTING.md) before proposing or implementing a change.
+- Follow the [Code of Conduct](./CODE_OF_CONDUCT.md) in project spaces.
+- Report vulnerabilities through the private process in [SECURITY.md](./SECURITY.md).
+- Review notable changes in [CHANGELOG.md](./CHANGELOG.md) and the published
+  [GitHub Releases](https://github.com/JohnnyChen1113/tanSail/releases).
+- Maintainers can follow [RELEASING.md](./RELEASING.md) for the version and tag workflow.
 
 Keep credentials out of Git. If a future module needs environment variables, document safe
 example names in `.env.example` without adding real values.
