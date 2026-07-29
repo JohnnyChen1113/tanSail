@@ -19,7 +19,8 @@ No changes yet.
   share-image recipes.
 - A guarded brief schema, generated preview, example fixtures, and the `$build-tansail-site` Codex
   skill.
-- Unit, browser, screenshot, build, dependency-review, and release automation.
+- Unit, portable browser, build, dependency-review, and release automation, plus local screenshot
+  baselines for visual review.
 
 ### Removed from the upstream baseline
 

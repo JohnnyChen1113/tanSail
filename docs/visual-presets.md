@@ -56,6 +56,12 @@ running the test:
 TANSAIL_BROWSER_CHANNEL=chrome pnpm test:visual
 ```
 
+Run the portable browser behavior suite used by CI without pixel comparisons:
+
+```bash
+pnpm test:browser
+```
+
 Run all six comparisons—three presets at desktop and mobile widths:
 
 ```bash
@@ -70,4 +76,7 @@ pnpm test:visual:update
 ```
 
 The test fixes light mode, locale, viewport, reduced motion, and animations so screenshots remain
-focused on intentional design changes.
+focused on intentional design changes. Pixel rendering still varies across operating systems and
+browser builds, so the screenshot comparisons are currently a local design check rather than a CI
+release gate. The existing macOS baselines are retained; canonical Linux baselines will be added
+when the planned Apple Container workflow is available.

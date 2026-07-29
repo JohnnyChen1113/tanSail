@@ -42,11 +42,12 @@ Run the complete local gate before requesting review:
 vp check
 vp test run
 vp build
-TANSAIL_BROWSER_CHANNEL=chrome pnpm test:visual
+TANSAIL_BROWSER_CHANNEL=chrome pnpm test:browser
 ```
 
 UI changes should be checked at desktop and mobile widths, in light and dark themes, with reduced
-motion enabled. Update screenshot baselines only after inspecting the visual differences.
+motion enabled. The platform-sensitive screenshot suite remains available through
+`pnpm test:visual`; update its baselines only after inspecting the visual differences.
 
 ## Pull requests
 

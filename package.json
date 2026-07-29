@@ -16,6 +16,7 @@
     "preview": "vp preview",
     "start": "wrangler dev",
     "test": "vp test run",
+    "test:browser": "playwright test --grep-invert @visual",
     "test:visual": "playwright test",
     "test:visual:update": "playwright test --update-snapshots",
     "lint": "vp lint --type-aware --type-check",

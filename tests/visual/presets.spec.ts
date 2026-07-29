@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 import { presetCatalog } from "../../src/config/presets";
 
 for (const preset of presetCatalog.presets) {
-  test(`${preset.label} homepage`, async ({ page }) => {
+  test(`${preset.label} homepage`, { tag: "@visual" }, async ({ page }) => {
     await page.emulateMedia({ colorScheme: "light", reducedMotion: "reduce" });
     await page.addInitScript((presetId) => {
       localStorage.setItem("theme", "light");

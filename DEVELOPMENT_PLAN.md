@@ -76,7 +76,9 @@ projects that informed the product research.
 
 - [x] Add contribution, code-of-conduct, security, and release documentation.
 - [x] Add issue and pull-request templates.
-- [x] Set up CI for checks, tests, builds, visual regression, and dependency review.
+- [x] Set up CI for checks, browser behavior tests, builds, and dependency review.
+- [ ] Standardize Linux screenshot baselines with the planned Apple Container workflow and restore
+      pixel comparisons in CI.
 - [x] Publish the tagged `v0.1.0` release with migration notes.
 - [ ] Publish a public TanSail showcase deployment.
 - [x] Review all bundled assets, fonts, examples, and dependencies for redistribution rights.

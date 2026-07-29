@@ -14,10 +14,13 @@ Only repository maintainers publish releases.
    vp check
    vp test run
    vp build
-   TANSAIL_BROWSER_CHANNEL=chrome pnpm test:visual
+   TANSAIL_BROWSER_CHANNEL=chrome pnpm test:browser
    ```
 
 4. Merge the release preparation pull request and wait for the `CI` workflow on `main` to pass.
+
+The full `pnpm test:visual` suite is an additional local design check. Its pixel comparisons are
+not a release gate until the canonical Linux baseline environment is standardized.
 
 ## Publish
 

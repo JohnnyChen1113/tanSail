@@ -43,8 +43,8 @@ jobs:
       - name: Build and prerender
         run: pnpm exec vp build
 
-  visual:
-    name: Visual regression
+  browser:
+    name: Browser regression
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -66,8 +66,8 @@ jobs:
       - name: Install Playwright Chromium
         run: pnpm exec playwright install --with-deps chromium
 
-      - name: Run browser and screenshot tests
-        run: pnpm run test:visual
+      - name: Run portable browser tests
+        run: pnpm run test:browser
 
   dependency-review:
     name: Dependency review
