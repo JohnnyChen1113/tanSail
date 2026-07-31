@@ -22,10 +22,12 @@ or required secrets.
 - Light, dark, and system themes without a flash of the wrong theme
 - Zod-validated site identity, navigation, calls to action, social links, and footer config
 - Reusable accessible announcement, header, mobile navigation, section, and footer components
-- Harbor, Horizon, and Nightwatch visual presets with a flash-free persisted selector
+- Harbor, Luminous, and Signal atmospheres with stable geometry and a flash-free selector
 - Typed hero, proof, feature, pricing, FAQ, and CTA blocks with a local design Gallery
 - Optional MDX docs/blog plus Changelog, Legal, Contact, JSON-LD, and share-image recipes
-- A guarded one-prompt workflow with a repository-owned Codex skill
+- A guarded one-prompt workflow plus reference-to-original-site Codex skills
+- Typed English and Simplified Chinese routes with canonical, `hreflang`, and sitemap support
+- A machine-readable `DESIGN.md` contract with lint, diff, export, and CI synchronization
 - Central SEO metadata with config-driven `sitemap.xml` and `robots.txt`
 - Cloudflare Workers through the official Vite plugin and Wrangler
 - Vite+ for formatting, linting, type checking, testing, and builds
@@ -53,14 +55,16 @@ The site is available at `http://localhost:3000`. No `.env` file is needed by de
 
 ```bash
 pnpm check
+pnpm design:check
 pnpm test
 pnpm test:visual
 pnpm build
 ```
 
 `pnpm check` formats, lints, and type-checks the project. The production build also prerenders
-public routes and creates the Cloudflare Worker bundle. Visual tests compare every preset at
-desktop and mobile sizes; see the visual preset guide for browser setup and baseline updates.
+public routes and creates the Cloudflare Worker bundle. Portable browser tests cover every preset
+at desktop and mobile sizes. Pixel comparisons remain an optional local check until
+platform-specific baselines are restored; see the visual preset guide.
 
 ## Deploy to Cloudflare
 
@@ -88,6 +92,11 @@ configuration; TanSail does not ship a project-specific domain.
   structured data, and supporting marketing pages.
 - Use the [one-prompt generation workflow](./docs/generation-workflow.md) to turn a brief into a
   checked generated preview.
+- Use the [Reference-to-TanSail workflow](./docs/reference-to-tansail.md) to turn URLs or
+  screenshots into an auditable, original implementation.
+- Read the [design contract guide](./docs/design-contract.md) before changing shared visual rules.
+- Read the [i18n guide](./docs/i18n.md) when changing locales, dictionaries, metadata, or language
+  typography.
 - Add shadcn/ui primitives with `vpr ui add <component>`.
 - Follow [DEVELOPMENT_PLAN.md](./DEVELOPMENT_PLAN.md) for the public roadmap.
 
