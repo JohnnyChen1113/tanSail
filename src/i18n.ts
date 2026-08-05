@@ -1,3 +1,5 @@
+import type { PresetId } from "#/config/presets";
+
 export const locales = ["en", "zh"] as const;
 export type Locale = (typeof locales)[number];
 
@@ -30,13 +32,15 @@ export type Dictionary = {
     light: string;
     dark: string;
     system: string;
-    descriptions: Record<"harbor" | "horizon" | "nightwatch", string>;
+    descriptions: Record<PresetId, string>;
   };
   announcement: {
     text: string;
     action: string;
   };
   navigation: {
+    docs: string;
+    recipes: string;
     system: string;
     workflow: string;
     quality: string;
@@ -99,9 +103,9 @@ export type Dictionary = {
 
 const en = {
   meta: {
-    title: "TanSail — A design-first TanStack starter",
+    title: "TanSail v0.2.0 — Design-first bilingual TanStack websites",
     description:
-      "A refined, bilingual TanStack Start foundation with curated landing blocks and Cloudflare deployment.",
+      "TanSail is a design-first, bilingual TanStack Start foundation with curated landing blocks, typed routes, quality checks, and Cloudflare Workers deployment.",
   },
   a11y: {
     skipToContent: "Skip to content",
@@ -122,6 +126,7 @@ const en = {
       harbor: "Editorial, warm, and quietly confident.",
       horizon: "Cool, product-led, and quietly radiant.",
       nightwatch: "Graphite, violet, and technically precise.",
+      ledger: "Graphic, compact, and structured like a working manual.",
     },
   },
   announcement: {
@@ -129,6 +134,8 @@ const en = {
     action: "Read the design contract",
   },
   navigation: {
+    docs: "Docs",
+    recipes: "Examples",
     system: "System",
     workflow: "Workflow",
     quality: "Quality",
@@ -263,8 +270,9 @@ const en = {
 
 const zh = {
   meta: {
-    title: "TanSail — 设计优先的 TanStack 起点",
-    description: "精炼、双语、可部署到 Cloudflare 的 TanStack Start 网站基础与精品页面区块。",
+    title: "TanSail v0.2.0｜设计优先的双语 TanStack Start 网站模板与 Cloudflare 起点",
+    description:
+      "TanSail 是设计优先的双语 TanStack Start 网站基础，提供精选页面区块、类型安全路由、中英文 SEO、响应式布局、无障碍默认值与真实浏览器质量检查，并通过官方 Cloudflare Vite 插件完成 Workers 构建、预览和部署，默认不依赖登录、数据库或任何密钥。",
   },
   a11y: {
     skipToContent: "跳到主要内容",
@@ -285,6 +293,7 @@ const zh = {
       harbor: "编辑感、温暖而克制。",
       horizon: "冷静、产品导向，带一点柔和光感。",
       nightwatch: "石墨与紫色，精确而技术化。",
+      ledger: "硬朗、紧凑，像一本可直接工作的编目手册。",
     },
   },
   announcement: {
@@ -292,6 +301,8 @@ const zh = {
     action: "查看设计契约",
   },
   navigation: {
+    docs: "使用文档",
+    recipes: "页面范例",
     system: "设计系统",
     workflow: "工作流",
     quality: "质量",
@@ -427,7 +438,8 @@ export function getAlternateLocale(locale: Locale): Locale {
 }
 
 export function resolveLocaleFromPath(pathname: string): Locale {
-  const [, candidate] = pathname.split("/");
+  const segments = pathname.split("/").filter(Boolean);
+  const candidate = segments[0] === "docs" ? segments[1] : segments[0];
   return candidate && isLocale(candidate) ? candidate : defaultLocale;
 }
 

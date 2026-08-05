@@ -7,7 +7,7 @@ The canonical runtime schema is `src/config/brief.ts`.
 - `audience`: primary audience, problem, and desired outcome.
 - `pages`: one or more page plans with path, goal, and ordered sections.
 - `tone`: one to three of `warm`, `direct`, `playful`, `technical`, or `editorial`.
-- `preset`: `harbor`, `horizon`, or `nightwatch`.
+- `preset`: `harbor`, `horizon`, `nightwatch`, or `ledger`.
 - `recipe`: one of the six IDs in `docs/page-recipes.md`.
 - `deployment`: Cloudflare Workers target and optional domain.
 

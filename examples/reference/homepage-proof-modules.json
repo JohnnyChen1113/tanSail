@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "project": {
+    "name": "TanSail Homepage Proof Modules",
+    "audience": "Builders evaluating TanSail and maintainers adapting its reusable landing blocks",
+    "outcome": "Make the verified technology foundation, supported site scenarios, and replaceable testimonial composition immediately understandable",
+    "locales": ["en", "zh"]
+  },
+  "sources": [
+    {
+      "type": "screenshot",
+      "locator": "conversation-attachment:image-1:technology-ecosystem-strip",
+      "usage": "inspiration-only",
+      "observations": {
+        "hierarchy": [
+          "A short centered label introduces a broad, low-height ecosystem band",
+          "Technology names carry more visual weight than surrounding explanatory copy"
+        ],
+        "typography": ["Compact neutral labels support larger recognizable technology names"],
+        "color": [
+          "A quiet near-white canvas lets small colored marks punctuate mostly dark wordmarks"
+        ],
+        "interaction": [
+          "The ecosystem reads at a glance and can collapse into a horizontally scrollable rail"
+        ],
+        "avoid": [
+          "Do not reuse third-party logos, their exact ordering, or the source spacing and two-row composition"
+        ]
+      }
+    },
+    {
+      "type": "screenshot",
+      "locator": "conversation-attachment:image-2:testimonial-wall",
+      "usage": "inspiration-only",
+      "observations": {
+        "hierarchy": [
+          "A large editorial heading introduces a dense wall of human-sized quote cards",
+          "Variable quote lengths create an informal masonry rhythm"
+        ],
+        "typography": [
+          "Large serif display type contrasts with practical sans-serif quotes and identity labels"
+        ],
+        "color": ["Warm white cards and hairline borders keep a long social-proof section calm"],
+        "interaction": [
+          "The section is primarily readable content and does not depend on hover interactions"
+        ],
+        "avoid": [
+          "Do not copy quotes, personal names, avatars, roles, card geometry, or imply that sample content is verified evidence"
+        ]
+      }
+    },
+    {
+      "type": "screenshot",
+      "locator": "conversation-attachment:image-3:filterable-tool-directory",
+      "usage": "inspiration-only",
+      "observations": {
+        "hierarchy": [
+          "A clear outcome-led heading is followed by category controls and a compact card directory",
+          "Filters establish the information model before detailed cards"
+        ],
+        "typography": [
+          "Large language-aware display copy leads into short labels and bilingual technical terms"
+        ],
+        "color": [
+          "A restrained accent color links filters and card metadata without coloring every surface"
+        ],
+        "interaction": [
+          "Category chips filter the visible catalog while preserving a simple reading order"
+        ],
+        "avoid": [
+          "Do not reuse the scientific product copy, tool marks, pink palette, clipped carousel, or exact card arrangement"
+        ]
+      }
+    }
+  ],
+  "direction": {
+    "name": "Evidence Harbor",
+    "principles": [
+      "Separate verified technology facts from illustrative template content",
+      "Let visitors scan compatibility and scenarios before reading detailed proof",
+      "Keep every module reusable through typed configuration and bilingual content"
+    ],
+    "materials": [
+      "Opaque editorial cards on the existing Luminous Harbor canvas",
+      "Original lettermarks, semantic accent tones, hairline borders, and restrained shadows",
+      "Compact filter pills reserved for interaction rather than decoration"
+    ],
+    "proof": [
+      "Technology names verified from the TanSail dependency and deployment configuration",
+      "Scenario descriptions bounded by the six maintained recipes and browser-only core",
+      "Testimonials visibly marked as replaceable sample content until verified feedback exists"
+    ]
+  },
+  "originality": {
+    "copySourceCode": false,
+    "copyAssets": false,
+    "exactReproduction": false,
+    "transformations": [
+      "Replace every third-party logo with an original typographic lettermark and verified technology label",
+      "Use a responsive semantic grid and rail instead of reproducing either reference logo layout",
+      "Turn the tool directory into TanSail site-scenario filters with original categories and copy",
+      "Use an accessible three-column card flow with explicit sample badges instead of presenting fabricated social proof",
+      "Place the modules inside TanSail's hero-to-delivery narrative rather than following the reference section order"
+    ]
+  }
+}

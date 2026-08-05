@@ -92,3 +92,41 @@ projects that informed the product research.
 - [x] Add a clean-room Reference-to-TanSail skill and deterministic brief renderer.
 - [x] Add responsive browser coverage for locale, metadata, overflow, and mobile navigation.
 - [x] Publish the independent showcase and the tagged `v0.2.0` release.
+
+## Phase 10 — template shell and SEO hardening
+
+- [x] Make announcements opt-in instead of part of the default shell.
+- [x] Enforce recommended 40–60 character titles and 140–160 character descriptions.
+- [x] Keep desktop navigation adjacent to the brand and reserve the right edge for actions.
+- [x] Establish readable minimum sizes for supporting homepage copy.
+- [x] Protect footer introduction columns from collapsing into character-by-character wrapping.
+- [x] Pass static, unit, browser, screenshot, and production-build validation.
+
+## Phase 11 — structural presets and discoverable recipes
+
+- [x] Add the Ledger preset with distinct density, geometry, typography, and composition tokens.
+- [x] Keep preset IDs shared by runtime recipes and generated-site briefs.
+- [x] Expose page recipes from the default site navigation.
+- [x] Document atmosphere-only and structural preset responsibilities.
+- [x] Pass static, unit, browser, screenshot, and production-build validation.
+
+## Phase 12 — bilingual documentation system
+
+- [x] Record a clean-room reference brief from the public ShipAny documentation experience.
+- [x] Replace the initial guide demo with thirteen subsystem-focused TanSail chapters in English and Chinese.
+- [x] Add explicit typed locale routes, chapter navigation, on-page navigation, search, and previous/next reading paths.
+- [x] Integrate localized documentation links, metadata, alternate-language URLs, and sitemap entries into the starter shell.
+- [x] Replace the Ledger presentation with a neutral technical-documentation shell, five-group navigation, readable article typography, tables, code copy actions, and responsive TOC behavior.
+- [x] Enforce documentation-specific SEO ranges, localized alternates, and sitemap coverage for all twenty-six articles.
+- [x] Pass design-contract, static, unit, browser, and production-build validation.
+
+## Phase 13 — reusable ecosystem and evidence modules
+
+- [x] Record a clean-room brief from ecosystem, directory, and testimonial references.
+- [x] Add compact technology rails with structured labels and backward-compatible logo strings.
+- [x] Add keyboard- and touch-operable scenario catalogs with semantic filters.
+- [x] Add grid and masonry testimonial variants with explicit demo or verified evidence states.
+- [x] Expand the block Gallery and product-led recipes to cover the new compositions.
+- [x] Document safe sample-content replacement and keep third-party assets out of the starter.
+- [x] Pass design, static, unit, browser, responsive visual, and production-build validation.
+- [x] Synchronize and verify the modules in the deployed official showcase.

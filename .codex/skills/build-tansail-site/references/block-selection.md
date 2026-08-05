@@ -5,6 +5,7 @@ Presets:
 - `harbor`: warm, editorial, thoughtful, human, or expert-led.
 - `horizon`: bright, optimistic, product-led SaaS and commercial products.
 - `nightwatch`: technical, high-contrast, developer, infrastructure, or AI tools.
+- `ledger`: graphic, compact, field-manual, studio, or information-dense product work.
 
 Recipes:
 
@@ -16,3 +17,8 @@ Recipes:
 - `consulting-studio`: point of view, method, evidence, and contact action.
 
 Use the recipe as the safe ordering. Remove irrelevant optional sections before creating a block. Keep a hero first and CTA last. Never present generated proof as verified fact.
+
+For product-led or knowledge sites, prefer `logo-cloud-rail` when the ecosystem needs structured
+technology labels and `use-cases-catalog` when visitors benefit from category filters. Use
+`testimonials-masonry` only with an explicit evidence state: keep bundled examples marked `demo`,
+and switch to `verified` only after every quote and identity has a permissioned source.
